@@ -3,13 +3,20 @@
 import tkinter as tk
 import customtkinter as ctk
 
-from triads_function import *
-from chords_function import chords
-from scales_function import *
+import sys
+import os
+module_path = os.path.abspath("C:/Users/s-jak/Documents/repositories/chord-explorer/src/backend")
+sys.path.append(module_path)
+
+
+
+#from triads_function import *
+#from chords_function import chords
+
 
 
 root = ctk.CTk()
-root.title("GUI PRACTICE")
+root.title("Chord Explorer")
 root.geometry('650x450')
 
 ctk.set_appearance_mode("dark") # system / light / dark
@@ -99,7 +106,7 @@ my_button4 = ctk.CTkButton(master=tabview.tab("Dropdown"), text="Explore", comma
 my_button4.pack(pady=70)
 
 
-dropdown_map = {"Major / Minor Scale": major_minor_scale, "Pentatonic Scale": pentatonic}
+dropdown_map = {"Major / Minor Scale": major_minor_scale , "Pentatonic Scale": pentatonic}
 
 combobox = ctk.CTkComboBox(master=tabview.tab("Dropdown"), values=["Major / Minor Scale", "Pentatonic Scale"], font=("TimesNewRoman", 14,))
 combobox.place(relx=0.5, rely=0.5, anchor="center")
