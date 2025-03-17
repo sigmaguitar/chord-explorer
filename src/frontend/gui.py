@@ -14,6 +14,7 @@ with open(json_path, 'r', encoding='utf-8') as file:
 
 module_path=os.path.abspath("/Users/s-jak/Documents/repositories/chord-explorer/src/backend")
 sys.path.append(module_path)
+#print(sys.path)
 
 from scales import *
 
@@ -32,23 +33,39 @@ tabview.add("Chords")
 
 
 def update_triads():
-    user_input = my_entry_triads.get()
+    user_input = my_entry_triads.get().strip().lower()
     output = triad(user_input, data)
     output_triads.configure(text=output)
 
 def update_dropdown():
-    selected_value = combobox.get()
-    user_input = my_entry.get()
+    selected_value = combobox.get() or ""
+    user_input = my_entry.get().strip().lower()
     if selected_value in dropdown_map:
         output = dropdown_map[selected_value](user_input, data)
         output_scales.configure(text=output)
 
 def update_chords():
-    user_input = my_entry_chords.get()
-    output1, output2 = chords(user_input, data)
-    output_chords.configure(text=output1)
-    output_chords2.configure(text=output2)
+    user_input = my_entry_chords.get() or ""
+    user_input = user_input.strip().lower()
+    try:
+        output1, output2 = chords(user_input, data)
+    except (TypeError, ValueError) as e:
+        #print(f"Error in chords function: {e}")
+        output1, output2 = "", ""
 
+    if output_chords1:
+        output_chords1.configure(text=output1)
+    if output_chords2:
+        output_chords2.configure(text=output2)
+
+    return output1, output2
+
+def hit_enter(event):
+ update_triads()
+ update_dropdown()
+ update_chords()
+
+root.bind("<Return>", hit_enter)
 
 
 title_scales = ctk.CTkLabel(master=tabview.tab("Scales"), text=" Explore Scales", font=("TimesNewRoman", 18))
@@ -91,15 +108,13 @@ my_button_chords.pack(pady=5)
 output_scales = ctk.CTkLabel(master=tabview.tab("Scales"), text="  ", font=("Arial", 17))
 output_scales.pack(side="top", pady=0)
 
-output_triads = ctk.CTkLabel(master=tabview.tab("Triads"), text=" TRIADS ", font=("Arial", 17))
+output_triads = ctk.CTkLabel(master=tabview.tab("Triads"), text="   ", font=("Arial", 17))
 output_triads.pack(side="top", padx=10, pady=10)
 
-output_chords = ctk.CTkLabel(master=tabview.tab("Chords"), text="  ", font=("Arial", 17))
-output_chords.pack(side="top", padx=10, pady=10)
+output_chords1 = ctk.CTkLabel(master=tabview.tab("Chords"), text="  ", font=("Arial", 17))
+output_chords1.pack(side="top", padx=10, pady=10)
 
 output_chords2 = ctk.CTkLabel(master=tabview.tab("Chords"), text="  ", font=("Arial", 17))
 output_chords2.pack(side="top", padx=10, pady=10)
 
 root.mainloop()
-
-print(sys.path)
