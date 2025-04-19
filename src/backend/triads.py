@@ -10,22 +10,26 @@ def triad(key, data):
     else:
         return None, None, None
 
-    root_pos = [scale[0], scale[2], scale[4]]
-    first_inv = [scale[2], scale[4], scale[0]]
-    second_inv = [scale[4], scale[0], scale[2]]
+    # root_pos = [scale[0],scale[2],scale[4]]
+    root_pos = f" {scale[0]} - {scale[2]} - {scale[4]}  "
+
+    # first_inv = [scale[2], scale[4], scale[0]]
+    first_inv = f" {scale[2]} - {scale[4]} - {scale[0]}  "
+
+    # second_inv = [scale[4], scale[0], scale[2]]
+    second_inv = f" {scale[4]} - {scale[0]} - {scale[2]} "
 
     return root_pos, first_inv, second_inv
-
 
 
 # if w in aug:
 #     print(f"TRIAD              {w.capitalize()}          ")
 #     result_1 = aug[w][0] + "-" + aug[w][2] + "-" + aug[w][4]
-#     print("Root  // 1-3-5 //", result_1, " // DO - MI - SO")
+#     print("Root  // 1-3-#5 //", result_1, " // DO - MI - SO")
 #     result_2 = aug[w][2] + "-" + aug[w][4] + "-" + aug[w][0]
-#     print("1st  // 3-5-1 //", result_2, " //  MI - SO - DO")
+#     print("1st  // 3-#5-1 //", result_2, " //  MI - SO - DO")
 #     result_3 = aug[w][4] + "-" + aug[w][0] + "-" + aug[w][2]
-#     print("2nd // 5-1-3 //", result_3, " //   SO - DO - MI")
+#     print("2nd // #5-1-3 //", result_3, " //   SO - DO - MI")
 #
 # elif w in maj:
 #     print(f"TRIAD              {w.capitalize()}major         ")
@@ -48,8 +52,8 @@ def triad(key, data):
 # elif w in dim:
 #     print(f"TRIAD                {w.capitalize()}      ")
 #     result_1 = dim[w][0] + "-" + dim[w][2] + "-" + dim[w][4]
-#     print(f"Root  // 1-b3-5 // ", result_1, " // DO - MI - SO")
+#     print(f"Root  // 1-b3-b5 // ", result_1, " // DO - MI - SO")
 #     result_2 = dim[w][2] + "-" + dim[w][4] + "-" + dim[w][0]
-#     print("1st  // b3-5-1 // ", result_2, " //  MI - SO - DO")
+#     print("1st  // b3-b5-1 // ", result_2, " //  MI - SO - DO")
 #     result_3 = dim[w][4] + "-" + dim[w][0] + "-" + dim[w][2]
-#     print("2nd // 5-1-b3 // ", result_3, " //   SO - DO - MI")
+#     print("2nd // b5-1-b3 // ", result_3, " //   SO - DO - MI")

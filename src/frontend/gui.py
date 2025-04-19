@@ -105,8 +105,17 @@ my_button_chords = ctk.CTkButton(master=tabview.tab("Chords"), text="Explore",co
 my_button_chords.pack(pady=5)
 
 
+output_scales_build = ctk.CTkLabel(master=tabview.tab("Scales"), text= "Scales build", font=("Arial", 17))
+output_scales_build.pack(side="top", padx=10, pady=10)
+
 output_scales = ctk.CTkLabel(master=tabview.tab("Scales"), text="  ", font=("Arial", 17))
 output_scales.pack(side="top", pady=0)
+
+output_triads_description = ctk.CTkLabel(master=tabview.tab("Triads"), text="Root Position | First Inversion | Second Inversion", font=("Arial", 17))
+output_triads_description.pack(side="top", padx=10, pady=10)
+
+output_triads_build = ctk.CTkLabel(master=tabview.tab("Triads"), text="Major | { 1 - 3 - 5 } - { 3 - 5 - 1 } - { 5 - 3 - 1 }", font=("Arial", 18))
+output_triads_build.pack(side="top", padx=10, pady=10)
 
 output_triads = ctk.CTkLabel(master=tabview.tab("Triads"), text="   ", font=("Arial", 17))
 output_triads.pack(side="top", padx=10, pady=10)
