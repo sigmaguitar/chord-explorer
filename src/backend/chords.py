@@ -6,13 +6,17 @@ def chords(key, data):
     NUM_MIN = ["i.", "iidim.", "III.", "iv.", "v.", "VI.", "VII."]
     NUM_MAJ = ["I.", "ii.", "iii.", "IV.", "V.", "vi.", "vii."]
 
+
+#ToDo Namenänderung -
+
     if key in data['maj']:
         scale = data['maj'][key][0]
         major_scale =[]
         major7_scale = []
         for i in range(7):
             major_scale.append(scale[i] + MAJOR[i])
-            major7_scale.append(NUM_MAJ[i] + scale[i] + MAJOR7[i])
+            major7_scale.append(scale[i] + MAJOR7[i])
+            # major7_scale.append(NUM_MAJ[i] + scale[i] + MAJOR7[i])
 
         # print()
         # print(f"                Chords of [{key.title()}]")
@@ -29,7 +33,8 @@ def chords(key, data):
         minor7_scale = []
         for i in range(7):
             minor_scale.append(scale[i] + MINOR[i])
-            minor7_scale.append(NUM_MIN[i] + scale[i] + MINOR7[i])
+            minor7_scale.append(scale[i] + MINOR7[i])
+            # minor7_scale.append(NUM_MIN[i] + scale[i] + MINOR7[i])
 
         # print("   I.    II.   III.  IV.    V.   VI. VII.")
         # print(natural_minor_comb)

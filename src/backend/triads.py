@@ -10,14 +10,13 @@ def triad(key, data):
     else:
         return None, None, None
 
-    # root_pos = [scale[0],scale[2],scale[4]]
-    root_pos = f" {scale[0]} - {scale[2]} - {scale[4]}  "
+    root_pos = [scale[0], scale[2], scale[4]]
+    first_inv = [scale[2], scale[4], scale[0]]
+    second_inv = [scale[4], scale[0], scale[2]]
 
-    # first_inv = [scale[2], scale[4], scale[0]]
-    first_inv = f" {scale[2]} - {scale[4]} - {scale[0]}  "
-
-    # second_inv = [scale[4], scale[0], scale[2]]
-    second_inv = f" {scale[4]} - {scale[0]} - {scale[2]} "
+    # root_pos = f" [scale[0] - {scale[2]} - {scale[4]]  "
+    # first_inv = f" {scale[2]} - {scale[4]} - {scale[0]}  "
+    # second_inv = f" {scale[4]} - {scale[0]} - {scale[2]} "
 
     return root_pos, first_inv, second_inv
 
